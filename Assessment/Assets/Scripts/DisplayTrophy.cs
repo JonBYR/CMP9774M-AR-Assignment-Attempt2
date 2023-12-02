@@ -37,8 +37,6 @@ public class DisplayTrophy : MonoBehaviour
     // Update is called once per frame
     public void OnButtonTouch()
     {
-        currentPrefab(markersFound);
-
         if (markersFound == 0) { return; }
         else
         {
@@ -46,9 +44,10 @@ public class DisplayTrophy : MonoBehaviour
             if(canDisplay == true)
             {
                 plane.enabled = true;
-                if (bronzeDisplay) Instantiate(Bronze, plane.transform.position, plane.transform.rotation);
-                if (silverDisplay) Instantiate(Silver, plane.transform.position, plane.transform.rotation);
-                if (goldDisplay) Instantiate(Gold, plane.transform.position, plane.transform.rotation);
+                currentPrefab(markersFound);
+                if (bronzeDisplay) Instantiate(Bronze, plane.transform.position + new Vector3(20f, 1f, 20f), plane.transform.rotation);
+                if (silverDisplay) Instantiate(Silver, plane.transform.position + new Vector3(20f, 1f, 20f), plane.transform.rotation);
+                if (goldDisplay) Instantiate(Gold, plane.transform.position + new Vector3(20f, 1f, 20f), plane.transform.rotation);
             }
             else if(plane.enabled == false)
             {
