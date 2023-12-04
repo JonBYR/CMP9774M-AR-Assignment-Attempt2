@@ -97,10 +97,6 @@ namespace UnityEngine.XR.ARFoundation.samples
                 trackedImage.transform.localScale = new Vector3(minLocalScalar, minLocalScalar, minLocalScalar);
                 AssignPrefab(trackedImage);
             }
-            foreach (var trackedImage in eventArgs.removed)
-            {
-                Destroy(m_Instantiated[trackedImage.referenceImage.guid]);
-            }
         }
 
         void AssignPrefab(ARTrackedImage trackedImage)
