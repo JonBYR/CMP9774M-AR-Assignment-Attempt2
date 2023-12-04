@@ -97,6 +97,10 @@ namespace UnityEngine.XR.ARFoundation.samples
                 trackedImage.transform.localScale = new Vector3(minLocalScalar, minLocalScalar, minLocalScalar);
                 AssignPrefab(trackedImage);
             }
+            foreach (var trackedImage in eventArgs.removed)
+            {
+                Destroy(m_Instantiated[trackedImage.referenceImage.guid]);
+            }
         }
 
         void AssignPrefab(ARTrackedImage trackedImage)
@@ -196,7 +200,7 @@ namespace UnityEngine.XR.ARFoundation.samples
                         var tempDictionary = new Dictionary<Guid, GameObject>();
                         foreach (var image in library)
                         {
-                            var prefab = (GameObject) EditorGUILayout.ObjectField(image.name, behaviour.m_PrefabsDictionary[image.guid], typeof(GameObject), false);
+                            var prefab = (GameObject)EditorGUILayout.ObjectField(image.name, behaviour.m_PrefabsDictionary[image.guid], typeof(GameObject), false);
                             tempDictionary.Add(image.guid, prefab);
                         }
 

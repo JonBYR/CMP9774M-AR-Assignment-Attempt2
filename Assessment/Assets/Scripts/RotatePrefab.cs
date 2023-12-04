@@ -36,8 +36,7 @@ public class RotatePrefab : MonoBehaviour
         }
         if (canRotate) 
         {
-            Logger.Instance.LogInfo("Rotating");
-            this.transform.RotateAround(this.transform.position, Vector3.right, 20 * Time.deltaTime); 
+            this.transform.RotateAround(this.transform.position, Vector3.up, 20 * Time.deltaTime); 
         }
     }
 }

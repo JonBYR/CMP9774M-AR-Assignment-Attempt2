@@ -6,7 +6,7 @@ using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
 public class TreasureFound : MonoBehaviour
 {
-    private Image treasureImage;
+    private GameObject treasureImage;
     private GameObject treasureText;
     public static bool cathedralFound = false;
     public static bool footballFound = false;
@@ -16,15 +16,16 @@ public class TreasureFound : MonoBehaviour
     public GameObject foundText;
     private void Start()
     {
-        if(this.gameObject.name == "angelStatue")
+        d = GameObject.Find("ButtonController").GetComponent<DisplayTrophy>();
+        if(this.gameObject.tag == "Angel")
         {
-            Logger.Instance.LogInfo("Angel Found");
             treasureText = GameObject.Find("CathedralContainer");
             if (!cathedralFound) 
             { 
-                treasureImage = GameObject.Find("CathedralTreasure").GetComponent<Image>();
+                treasureImage = GameObject.Find("CathedralTreasure");
+                treasureImage.SetActive(false);
                 cathedralFound = true;
-                Destroy(treasureImage);
+                //Destroy(treasureImage);
                 clip.Play();
                 Handheld.Vibrate();
                 d.markersFound++;
@@ -36,14 +37,16 @@ public class TreasureFound : MonoBehaviour
             }
             treasureText.transform.GetChild(0).gameObject.SetActive(true);
         }
-        else if(this.gameObject.name == "SoccerBall_01")
+        else if(this.gameObject.tag == "Football")
         {
             treasureText = GameObject.Find("FootballContainer");
             if(!footballFound)
             {
-                treasureImage = GameObject.Find("FootballTreasure").GetComponent<Image>();
+                treasureImage = GameObject.Find("FootballTreasure");
+                treasureImage.SetActive(false);
+
                 footballFound = true;
-                Destroy(treasureImage);
+               // Destroy(treasureImage);
                 clip.Play();
                 Handheld.Vibrate();
                 d.markersFound++;
@@ -55,14 +58,14 @@ public class TreasureFound : MonoBehaviour
             }
             treasureText.transform.GetChild(0).gameObject.SetActive(true);
         }
-        else if(this.gameObject.name == "Laptop_white")
+        else if(this.gameObject.tag == "Laptop")
         {
             treasureText = GameObject.Find("UniversityContainer");
             if (!universityFound)
             {
-                treasureImage = GameObject.Find("UniversityTreasure").GetComponent<Image>();
+                treasureImage = GameObject.Find("UniversityTreasure");
+                treasureImage.SetActive(false);
                 universityFound = true;
-                Destroy(treasureImage);
                 clip.Play();
                 Handheld.Vibrate();
                 d.markersFound++;
