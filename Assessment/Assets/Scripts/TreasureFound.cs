@@ -14,18 +14,21 @@ public class TreasureFound : MonoBehaviour
     private DisplayTrophy d;
     public AudioSource clip;
     public GameObject foundText;
+    private Button closeButton;
     private void Start()
     {
         d = GameObject.Find("ButtonController").GetComponent<DisplayTrophy>();
         if(this.gameObject.tag == "Angel")
         {
             treasureText = GameObject.Find("CathedralContainer");
+            treasureText.transform.GetChild(1).gameObject.SetActive(true);
+            closeButton = treasureText.transform.GetChild(1).gameObject.GetComponent<Button>();
+            closeButton.onClick.AddListener(() => RemoveFromScene());
             if (!cathedralFound) 
             { 
                 treasureImage = GameObject.Find("CathedralTreasure");
                 treasureImage.SetActive(false);
                 cathedralFound = true;
-                //Destroy(treasureImage);
                 clip.Play();
                 Handheld.Vibrate();
                 d.markersFound++;
@@ -40,13 +43,15 @@ public class TreasureFound : MonoBehaviour
         else if(this.gameObject.tag == "Football")
         {
             treasureText = GameObject.Find("FootballContainer");
-            if(!footballFound)
+            treasureText.transform.GetChild(1).gameObject.SetActive(true);
+            closeButton = treasureText.transform.GetChild(1).gameObject.GetComponent<Button>();
+            closeButton.onClick.AddListener(() => RemoveFromScene());
+            if (!footballFound)
             {
                 treasureImage = GameObject.Find("FootballTreasure");
                 treasureImage.SetActive(false);
 
                 footballFound = true;
-               // Destroy(treasureImage);
                 clip.Play();
                 Handheld.Vibrate();
                 d.markersFound++;
@@ -61,6 +66,9 @@ public class TreasureFound : MonoBehaviour
         else if(this.gameObject.tag == "Laptop")
         {
             treasureText = GameObject.Find("UniversityContainer");
+            treasureText.transform.GetChild(1).gameObject.SetActive(true);
+            closeButton = treasureText.transform.GetChild(1).gameObject.GetComponent<Button>();
+            closeButton.onClick.AddListener(() => RemoveFromScene());
             if (!universityFound)
             {
                 treasureImage = GameObject.Find("UniversityTreasure");
@@ -78,9 +86,11 @@ public class TreasureFound : MonoBehaviour
             treasureText.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
-    private void OnDestroy() //should be called when game object is destroyed
+    private void RemoveFromScene() //should be called when game object is destroyed
     {
         treasureText.transform.GetChild(0).gameObject.SetActive(false);
+        treasureText.transform.GetChild(1).gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
     void DestroyText()
     {
