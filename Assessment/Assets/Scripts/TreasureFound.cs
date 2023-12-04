@@ -14,10 +14,11 @@ public class TreasureFound : MonoBehaviour
     private DisplayTrophy d;
     public AudioSource clip;
     public GameObject foundText;
-    private void Awake()
+    private void Start()
     {
         if(this.gameObject.name == "angelStatue")
         {
+            Logger.Instance.LogInfo("Angel Found");
             treasureText = GameObject.Find("CathedralContainer");
             if (!cathedralFound) 
             { 

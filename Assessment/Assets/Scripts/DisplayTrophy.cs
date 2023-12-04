@@ -25,11 +25,8 @@ public class DisplayTrophy : MonoBehaviour
     void Awake()
     {
         findText = GameObject.Find("FindText");
-        //tapInstructions = GameObject.Find("Tap");
-        //tapInstructions.SetActive(false);
         findText.SetActive(false);
         arRaycastManager = GetComponent<ARRaycastManager>();
-        //trophyButton.onClick.AddListener(() => currentPrefab(markersFound));
         canDisplay = false;
         plane.enabled = false;
     }
@@ -37,7 +34,13 @@ public class DisplayTrophy : MonoBehaviour
     // Update is called once per frame
     public void OnButtonTouch()
     {
-        if (markersFound == 0) { return; }
+        if (markersFound == 0) 
+        {
+            Debug.Log("Called");
+            findText.SetActive(true);
+            Invoke("removeText", 2f);
+            return; 
+        }
         else
         {
             canDisplay = !canDisplay;
@@ -61,9 +64,7 @@ public class DisplayTrophy : MonoBehaviour
     {
         if (m == 0) 
         {
-            Debug.Log("Called");
-            findText.SetActive(true);
-            Invoke("removeText", 2f);
+            
         }
         else if (m == 1)
         {
