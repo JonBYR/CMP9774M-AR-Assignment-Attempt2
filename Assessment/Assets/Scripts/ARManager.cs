@@ -19,14 +19,26 @@ public class ARManager : MonoBehaviour
     public Button laptopButton;
     public Button footballButton;
     public PrefabImagePairManager prefabImagePairManager;
+    public static ARManager instance;
+    private void Awake()
+    {
+        if(instance != null && instance != this)
+        {
+            Destroy(this); //already have one in scene
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     private void Start()
     {
         footballSpawned = false;
         laptopSpawned = false;
         cathedralSpawned = false;
-        footballButton.onClick.AddListener(() => RemoveFootballContainer());
-        laptopButton.onClick.AddListener(() => RemoveLaptopContainer());
-        cathedralButton.onClick.AddListener(() => RemoveCathedralContainer());
+        //footballButton.onClick.AddListener(() => RemoveFootballContainer());
+        //laptopButton.onClick.AddListener(() => RemoveLaptopContainer());
+        //cathedralButton.onClick.AddListener(() => RemoveCathedralContainer());
     }
     private void Update()
     {
@@ -44,10 +56,13 @@ public class ARManager : MonoBehaviour
         }
     }
 
-    void RemoveFootballContainer()
+    public void RemoveFootballContainer()
     {
+        Debug.Log("Football Container Removed");
         footballSpawned = false;
-        foreach(var gb in prefabImagePairManager.m_Instantiated)
+        Debug.Log(footballSpawned);
+        footballContainer.SetActive(false);
+        foreach (var gb in prefabImagePairManager.m_Instantiated)
         {
             if (gb.Value.gameObject.tag.Equals("Football"))
             {
@@ -55,9 +70,12 @@ public class ARManager : MonoBehaviour
             }
         }
     }
-    void RemoveLaptopContainer()
+    public void RemoveLaptopContainer()
     {
+        Debug.Log("Laptop Container Removed");
         laptopSpawned = false;
+        Debug.Log(laptopSpawned);
+        laptopContainer.SetActive(false);
         foreach (var gb in prefabImagePairManager.m_Instantiated)
         {
             if (gb.Value.gameObject.tag.Equals("Laptop"))
@@ -66,9 +84,12 @@ public class ARManager : MonoBehaviour
             }
         }
     }
-    void RemoveCathedralContainer()
+    public void RemoveCathedralContainer()
     {
+        Debug.Log("Cathedral Container Removed");
         cathedralSpawned = false;
+        Debug.Log(cathedralSpawned);
+        cathedralContainer.SetActive(false);
         foreach (var gb in prefabImagePairManager.m_Instantiated)
         {
             if (gb.Value.gameObject.tag.Equals("Angel"))

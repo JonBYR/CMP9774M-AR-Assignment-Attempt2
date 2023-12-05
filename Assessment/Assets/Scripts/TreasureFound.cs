@@ -6,7 +6,6 @@ using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
 public class TreasureFound : MonoBehaviour
 {
-    private ARManager arManager;
     public static bool cathedralFound = false;
     public static bool footballFound = false;
     public static bool universityFound = false;
@@ -15,18 +14,17 @@ public class TreasureFound : MonoBehaviour
     public GameObject foundText;
     private void Start()
     {
-        arManager = GameObject.Find("ARManager").GetComponent<ARManager>();
         d = GameObject.Find("ButtonController").GetComponent<DisplayTrophy>();
         if(this.gameObject.tag == "Angel")
         {
-            arManager.cathedralSpawned = true;
+            ARManager.instance.cathedralSpawned = true;
             /*arManager.cathedralContainer.transform.GetChild(1).gameObject.SetActive(true);
             arManager.cathedralButton = arManager.cathedralButton.transform.GetChild(1).gameObject.GetComponent<Button>();
             arManager.cathedralButton.onClick.AddListener(() => RemoveFromScene());
             arManager.cathedralContainer.transform.GetChild(0).gameObject.SetActive(true);*/
             if (!cathedralFound) 
-            { 
-                arManager.cathedralImage.SetActive(false);
+            {
+                ARManager.instance.cathedralImage.SetActive(false);
                 cathedralFound = true;
                 clip.Play();
                 Handheld.Vibrate();
@@ -40,7 +38,7 @@ public class TreasureFound : MonoBehaviour
         }
         else if(this.gameObject.tag == "Football")
         {
-            arManager.footballSpawned = true;
+            ARManager.instance.footballSpawned = true;
             /*treasureText = GameObject.Find("FootballContainer");
             treasureText.transform.GetChild(1).gameObject.SetActive(true);
             closeButton = treasureText.transform.GetChild(1).gameObject.GetComponent<Button>();*/
@@ -48,7 +46,7 @@ public class TreasureFound : MonoBehaviour
             if (!footballFound)
             {
 
-                arManager.footballImage.SetActive(false);
+                ARManager.instance.footballImage.SetActive(false);
 
                 footballFound = true;
                 clip.Play();
@@ -64,7 +62,7 @@ public class TreasureFound : MonoBehaviour
         }
         else if(this.gameObject.tag == "Laptop")
         {
-            arManager.laptopSpawned = true;
+            ARManager.instance.laptopSpawned = true;
             /*treasureText = GameObject.Find("UniversityContainer");
             treasureText.transform.GetChild(1).gameObject.SetActive(true);
             closeButton = treasureText.transform.GetChild(1).gameObject.GetComponent<Button>();
@@ -72,7 +70,7 @@ public class TreasureFound : MonoBehaviour
             if (!universityFound)
             {
 
-                arManager.laptopImage.SetActive(false);
+                ARManager.instance.laptopImage.SetActive(false);
                 universityFound = true;
                 clip.Play();
                 Handheld.Vibrate();
