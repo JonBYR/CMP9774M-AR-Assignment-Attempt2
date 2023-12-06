@@ -19,6 +19,8 @@ public class PhoneChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Device Altitiude-> " + info.altitude);
+        /*
         if(info.altitude <= 0)
         {
             objectImage.SetActive(true);
@@ -29,5 +31,6 @@ public class PhoneChecker : MonoBehaviour
             objectImage.SetActive(false);
             objectImage.SetActive(false);
         }
+        */
     }
 }

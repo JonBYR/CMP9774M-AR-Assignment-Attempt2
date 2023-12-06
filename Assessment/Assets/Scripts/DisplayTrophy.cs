@@ -20,6 +20,7 @@ public class DisplayTrophy : MonoBehaviour
     //[SerializeField] private Button trophyButton;
     private GameObject findText;
     public ARPlane plane;
+    [SerializeField] private Button displayButton;
     //private GameObject tapInstructions;
     // Start is called before the first frame update
     void Awake()
@@ -29,6 +30,7 @@ public class DisplayTrophy : MonoBehaviour
         arRaycastManager = GetComponent<ARRaycastManager>();
         canDisplay = false;
         plane.enabled = false;
+        displayButton.onClick.AddListener(() => currentPrefab(markersFound));
     }
 
     // Update is called once per frame
@@ -43,22 +45,42 @@ public class DisplayTrophy : MonoBehaviour
         }
         else
         {
-            canDisplay = !canDisplay;
-            if(canDisplay == true)
-            {
-                plane.enabled = true;
-                currentPrefab(markersFound);
-                if (bronzeDisplay) Instantiate(Bronze, plane.transform.position + new Vector3(20f, 1f, 20f), plane.transform.rotation);
-                if (silverDisplay) Instantiate(Silver, plane.transform.position + new Vector3(20f, 1f, 20f), plane.transform.rotation);
-                if (goldDisplay) Instantiate(Gold, plane.transform.position + new Vector3(20f, 1f, 20f), plane.transform.rotation);
-            }
-            else if(plane.enabled == false)
-            {
-                plane.enabled = false;
-                RemoveTrophy();
-            }
+            canDisplay = true;
         }
         //tapInstructions.SetActive(false);
+    }
+    private void Update()
+    {
+        if (canDisplay == true)
+        {
+            plane.enabled = true;
+            if(Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                if (EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
+                if(touch.phase == TouchPhase.Began)
+                {
+                    var touchPosition = touch.position;
+                    Ray ray = Camera.main.ScreenPointToRay(touchPosition);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit) && hit.transform.CompareTag("Trophy")) Destroy(hit.transform.gameObject);
+                    else if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
+                    {
+                        var hitPose = hits[0].pose;
+                        if (bronzeDisplay) Instantiate(Bronze, hitPose.position, hitPose.rotation);
+                        if (silverDisplay) Instantiate(Silver, hitPose.position, hitPose.rotation);
+                        if (goldDisplay) Instantiate(Gold, hitPose.position, hitPose.rotation);
+                    }
+                }
+            }
+        }
+        /*
+        else if (canDisplay == false)
+        {
+            plane.enabled = false;
+            RemoveTrophy();
+        }
+        */
     }
     public void currentPrefab(int m)
     {

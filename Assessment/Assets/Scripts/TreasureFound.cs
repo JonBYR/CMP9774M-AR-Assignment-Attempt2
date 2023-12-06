@@ -29,6 +29,7 @@ public class TreasureFound : MonoBehaviour
                 clip.Play();
                 Handheld.Vibrate();
                 d.markersFound++;
+                //Debug.Log(d.markersFound);
             }
             else
             {
@@ -52,6 +53,7 @@ public class TreasureFound : MonoBehaviour
                 clip.Play();
                 Handheld.Vibrate();
                 d.markersFound++;
+                //Debug.Log(d.markersFound);
             }
             else
             {
@@ -75,6 +77,7 @@ public class TreasureFound : MonoBehaviour
                 clip.Play();
                 Handheld.Vibrate();
                 d.markersFound++;
+                //Debug.Log(d.markersFound);
             }
             else
             {
