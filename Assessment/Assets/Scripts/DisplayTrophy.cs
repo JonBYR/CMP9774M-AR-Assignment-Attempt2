@@ -10,111 +10,100 @@ public class DisplayTrophy : MonoBehaviour
     public GameObject Bronze;
     public GameObject Silver;
     public GameObject Gold;
-    private bool bronzeDisplay;
-    private bool silverDisplay;
-    private bool goldDisplay;
-    private bool canDisplay = false;
+    List<GameObject> TrophyList = new List<GameObject>();
     private ARRaycastManager arRaycastManager;
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     public int markersFound = 0;
     //[SerializeField] private Button trophyButton;
-    private GameObject findText;
-    public ARPlane plane;
+    public GameObject findText;
     [SerializeField] private Button displayButton;
-    //private GameObject tapInstructions;
+    bool _turnOnPlane;
+    //public ARPlane plane;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        findText = GameObject.Find("FindText");
-        findText.SetActive(false);
         arRaycastManager = GetComponent<ARRaycastManager>();
-        canDisplay = false;
-        plane.enabled = false;
-        displayButton.onClick.AddListener(() => currentPrefab(markersFound));
+        _turnOnPlane = false;
+        //plane.enabled = true;
     }
 
     // Update is called once per frame
-    public void OnButtonTouch()
-    {
-        if (markersFound == 0) 
-        {
-            Debug.Log("Called");
-            findText.SetActive(true);
-            Invoke("removeText", 2f);
-            return; 
-        }
-        else
-        {
-            canDisplay = true;
-        }
-        //tapInstructions.SetActive(false);
-    }
     private void Update()
     {
-        if (canDisplay == true)
+        if (Input.touchCount > 0)
         {
-            plane.enabled = true;
-            if(Input.touchCount > 0)
+            Touch touch = Input.GetTouch(0);
+            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
             {
-                Touch touch = Input.GetTouch(0);
-                if (EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
-                if(touch.phase == TouchPhase.Began)
+                return;
+            }
+            if (touch.phase == TouchPhase.Began)
+            {
+                var touchPosition = touch.position;
+                Ray ray = Camera.main.ScreenPointToRay(touchPosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit) && hit.transform.CompareTag("Trophy"))
                 {
-                    var touchPosition = touch.position;
-                    Ray ray = Camera.main.ScreenPointToRay(touchPosition);
-                    RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit) && hit.transform.CompareTag("Trophy")) Destroy(hit.transform.gameObject);
-                    else if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
+                    Destroy(hit.transform.gameObject); 
+                }
+                else if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
+                {
+                    var hitPose = hits[0].pose;
+                    switch (markersFound)
                     {
-                        var hitPose = hits[0].pose;
-                        if (bronzeDisplay) Instantiate(Bronze, hitPose.position, hitPose.rotation);
-                        if (silverDisplay) Instantiate(Silver, hitPose.position, hitPose.rotation);
-                        if (goldDisplay) Instantiate(Gold, hitPose.position, hitPose.rotation);
+                        case 0:
+                            if (findText != null)
+                            {
+                                Debug.Log("FindText active");
+                                findText.SetActive(true);
+                                Invoke("removeText", 2f);
+                            }
+                            return;
+                        case 1:
+                            if (Bronze != null)
+                            {
+                                Instantiate(Bronze, hitPose.position, hitPose.rotation);
+                                TrophyList.Add(Bronze);
+                            }
+                            break;
+                        case 2:
+                            if (Silver != null)
+                            {
+                                Instantiate(Silver, hitPose.position, hitPose.rotation);
+                                TrophyList.Add(Silver);
+                            }
+                            break;
+                        case 3:
+                            if (Gold != null)
+                            {
+                                Instantiate(Gold, hitPose.position, hitPose.rotation);
+                                TrophyList.Add(Gold);
+                            }
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
         }
-        /*
-        else if (canDisplay == false)
-        {
-            plane.enabled = false;
-            RemoveTrophy();
-        }
-        */
-    }
-    public void currentPrefab(int m)
-    {
-        if (m == 0) 
-        {
-            
-        }
-        else if (m == 1)
-        {
-            bronzeDisplay = true;
-            silverDisplay = false;
-            goldDisplay = false;
-        }
-        else if (m == 2)
-        {
-            bronzeDisplay = false;
-            silverDisplay = true;
-            goldDisplay = false;
-        }
-        else if (m == 3)
-        {
-            bronzeDisplay = false;
-            silverDisplay = false;
-            goldDisplay = true;
-        }
+
     }
     void removeText()
     {
         findText.SetActive(false);
     }
-    void RemoveTrophy()
+    public void RemoveTrophy()
     {
-        if (bronzeDisplay) Destroy(Bronze);
-        if (silverDisplay) Destroy(Silver);
-        if (goldDisplay) Destroy(Gold);
+        Debug.Log("Button Called");
+        if(TrophyList.Count == 0) 
+        {
+            Debug.Log("Button Returned");
+            return;
+        }
+        for(int i = 0; i< TrophyList.Count; i++)
+        {
+            Destroy(TrophyList[i]);
+        }
+        TrophyList.Clear();
     }
 }

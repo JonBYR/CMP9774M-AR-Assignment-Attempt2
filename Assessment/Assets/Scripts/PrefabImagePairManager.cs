@@ -97,34 +97,33 @@ namespace UnityEngine.XR.ARFoundation.samples
                 trackedImage.transform.localScale = new Vector3(minLocalScalar, minLocalScalar, minLocalScalar);
                 AssignPrefab(trackedImage);
             }
-            foreach (var trackedImage in eventArgs.updated)
-            {
-                if (m_Instantiated[trackedImage.referenceImage.guid]) 
-                {
-                    if (trackedImage.trackingState == TrackingState.Limited) //TrackingState.Limited is called to test if an image is outside of the camera's point of view
-                    {
-                        Debug.Log("Image lost");
-                        if (ARManager.instance.footballSpawned == true)
-                        {
-                            ARManager.instance.RemoveFootballContainer();
-                        }
-                        else if (ARManager.instance.cathedralSpawned == true)
-                        {
-                            ARManager.instance.RemoveCathedralContainer();
-                        }
-                        else if (ARManager.instance.laptopSpawned == true)
-                        {
-                            ARManager.instance.RemoveLaptopContainer();
-                        }
-                    }
-                    break;
-                }
+            //foreach (var trackedImage in eventArgs.updated)
+            //{
+            //    if (m_Instantiated[trackedImage.referenceImage.guid]) 
+            //    {
+            //        if (trackedImage.trackingState == TrackingState.Limited) //TrackingState.Limited is called to test if an image is outside of the camera's point of view
+            //        {
+            //            Debug.Log("Image lost");
+            //            if (ARManager.instance.footballSpawned == true)
+            //            {
+            //                ARManager.instance.RemoveFootballContainer();
+            //            }
+            //            else if (ARManager.instance.cathedralSpawned == true)
+            //            {
+            //                ARManager.instance.RemoveCathedralContainer();
+            //            }
+            //            else if (ARManager.instance.laptopSpawned == true)
+            //            {
+            //                ARManager.instance.RemoveLaptopContainer();
+            //            }
+            //        }
+            //        break;
+            //  }
                 
             //    // Give the initial image a reasonable default scale
                 //var minLocalScalar = Mathf.Min(trackedImage.size.x, trackedImage.size.y) / 2;
                 //trackedImage.transform.localScale = new Vector3(minLocalScalar, minLocalScalar, minLocalScalar);
                 //AssignPrefab(trackedImage);
-            }
         }
 
         void AssignPrefab(ARTrackedImage trackedImage)

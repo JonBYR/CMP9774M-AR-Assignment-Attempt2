@@ -581,6 +581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 345980648}
+  - component: {fileID: 345980649}
   m_Layer: 0
   m_Name: FootballContainer
   m_TagString: Untagged
@@ -605,6 +606,18 @@ Transform:
   - {fileID: 1090582600}
   m_Father: {fileID: 738550538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &345980649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345980647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9769d4b8d57f0a44891af82ac0994c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &379450807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,7 +1296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &498793003
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1771,6 +1784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854262005}
+  - component: {fileID: 854262006}
   m_Layer: 0
   m_Name: UniversityContainer
   m_TagString: Untagged
@@ -1795,6 +1809,18 @@ Transform:
   - {fileID: 469205066}
   m_Father: {fileID: 738550538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854262006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854262004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9769d4b8d57f0a44891af82ac0994c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &948912799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,6 +2020,8 @@ MonoBehaviour:
   Silver: {fileID: 6035068904036865805, guid: a7ccbd38d7331d14995a269d05d50003, type: 3}
   Gold: {fileID: 5460039032498507486, guid: 6e4ca06b53b95c94fbf6c697ac670bf2, type: 3}
   markersFound: 0
+  findText: {fileID: 498793002}
+  displayButton: {fileID: 1136111092}
   plane: {fileID: 2373930980908155612, guid: 1dd352ff146189446a626a7056ab078c, type: 3}
 --- !u!4 &1035950602
 Transform:
@@ -2260,7 +2288,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1035950601}
         m_TargetAssemblyTypeName: DisplayTrophy, Assembly-CSharp
-        m_MethodName: OnButtonTouch
+        m_MethodName: RemoveTrophy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2706,7 +2734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Display Trophy!
+  m_text: Remove Trophies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3463,6 +3491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1998528099}
+  - component: {fileID: 1998528100}
   m_Layer: 0
   m_Name: CathedralContainer
   m_TagString: Untagged
@@ -3487,6 +3516,18 @@ Transform:
   - {fileID: 424354996}
   m_Father: {fileID: 738550538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1998528100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998528098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9769d4b8d57f0a44891af82ac0994c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2072791443
 GameObject:
   m_ObjectHideFlags: 0

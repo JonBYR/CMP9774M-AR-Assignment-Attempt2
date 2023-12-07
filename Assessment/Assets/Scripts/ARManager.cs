@@ -36,66 +36,23 @@ public class ARManager : MonoBehaviour
         footballSpawned = false;
         laptopSpawned = false;
         cathedralSpawned = false;
-        //footballButton.onClick.AddListener(() => RemoveFootballContainer());
-        //laptopButton.onClick.AddListener(() => RemoveLaptopContainer());
-        //cathedralButton.onClick.AddListener(() => RemoveCathedralContainer());
     }
     private void Update()
     {
         if (footballSpawned)
         {
             footballContainer.SetActive(true);
+            footballSpawned=false;
         }
         else if(laptopSpawned)
         {
             laptopContainer.SetActive(true);
+            laptopSpawned=false;
         }
         else if(cathedralSpawned)
         {
             cathedralContainer.SetActive(true);
-        }
-    }
-
-    public void RemoveFootballContainer()
-    {
-        Debug.Log("Football Container Removed");
-        footballSpawned = false;
-        Debug.Log(footballSpawned);
-        footballContainer.SetActive(false);
-        foreach (var gb in prefabImagePairManager.m_Instantiated)
-        {
-            if (gb.Value.gameObject.tag.Equals("Football"))
-            {
-                Destroy(gb.Value.gameObject);
-            }
-        }
-    }
-    public void RemoveLaptopContainer()
-    {
-        Debug.Log("Laptop Container Removed");
-        laptopSpawned = false;
-        Debug.Log(laptopSpawned);
-        laptopContainer.SetActive(false);
-        foreach (var gb in prefabImagePairManager.m_Instantiated)
-        {
-            if (gb.Value.gameObject.tag.Equals("Laptop"))
-            {
-                Destroy(gb.Value.gameObject);
-            }
-        }
-    }
-    public void RemoveCathedralContainer()
-    {
-        Debug.Log("Cathedral Container Removed");
-        cathedralSpawned = false;
-        Debug.Log(cathedralSpawned);
-        cathedralContainer.SetActive(false);
-        foreach (var gb in prefabImagePairManager.m_Instantiated)
-        {
-            if (gb.Value.gameObject.tag.Equals("Angel"))
-            {
-                Destroy(gb.Value.gameObject);
-            }
+            cathedralSpawned=false;
         }
     }
 }
