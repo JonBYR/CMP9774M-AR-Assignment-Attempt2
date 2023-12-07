@@ -1621,6 +1621,7 @@ MonoBehaviour:
   markersFound: 0
   findText: {fileID: 498793002}
   displayButton: {fileID: 1136111092}
+  plane: {fileID: 2373930980908155612, guid: 1dd352ff146189446a626a7056ab078c, type: 3}
 --- !u!4 &1035950602
 Transform:
   m_ObjectHideFlags: 0

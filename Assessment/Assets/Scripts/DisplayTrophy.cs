@@ -17,13 +17,10 @@ public class DisplayTrophy : MonoBehaviour
     //[SerializeField] private Button trophyButton;
     public GameObject findText;
     [SerializeField] private Button displayButton;
-    bool _turnOnPlane;
-    //public ARPlane plane;
     // Start is called before the first frame update
     void Start()
     {
-        _turnOnPlane = false;
-        //plane.enabled = true;
+
     }
 
     // Update is called once per frame
