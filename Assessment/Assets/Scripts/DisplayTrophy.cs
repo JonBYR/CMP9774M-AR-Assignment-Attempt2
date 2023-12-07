@@ -11,7 +11,7 @@ public class DisplayTrophy : MonoBehaviour
     public GameObject Silver;
     public GameObject Gold;
     List<GameObject> TrophyList = new List<GameObject>();
-    private ARRaycastManager arRaycastManager;
+    public ARRaycastManager arRaycastManager;
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     public int markersFound = 0;
     //[SerializeField] private Button trophyButton;
@@ -22,7 +22,6 @@ public class DisplayTrophy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        arRaycastManager = GetComponent<ARRaycastManager>();
         _turnOnPlane = false;
         //plane.enabled = true;
     }
@@ -62,22 +61,22 @@ public class DisplayTrophy : MonoBehaviour
                         case 1:
                             if (Bronze != null)
                             {
-                                Instantiate(Bronze, hitPose.position, hitPose.rotation);
-                                TrophyList.Add(Bronze);
+                               var BT = Instantiate(Bronze, hitPose.position, hitPose.rotation);
+                                TrophyList.Add(BT);
                             }
                             break;
                         case 2:
                             if (Silver != null)
                             {
-                                Instantiate(Silver, hitPose.position, hitPose.rotation);
-                                TrophyList.Add(Silver);
+                                var ST = Instantiate(Silver, hitPose.position, hitPose.rotation);
+                                TrophyList.Add(ST);
                             }
                             break;
                         case 3:
                             if (Gold != null)
                             {
-                                Instantiate(Gold, hitPose.position, hitPose.rotation);
-                                TrophyList.Add(Gold);
+                                var GT = Instantiate(Gold, hitPose.position, hitPose.rotation);
+                                TrophyList.Add(GT);
                             }
                             break;
                         default:
@@ -100,10 +99,13 @@ public class DisplayTrophy : MonoBehaviour
             Debug.Log("Button Returned");
             return;
         }
-        for(int i = 0; i< TrophyList.Count; i++)
+        else
         {
-            Destroy(TrophyList[i]);
+            foreach(var item in TrophyList) 
+            { 
+                Destroy(item);
+            }
+            TrophyList.Clear();
         }
-        TrophyList.Clear();
     }
 }
