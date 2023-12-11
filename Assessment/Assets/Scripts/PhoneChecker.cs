@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class PhoneChecker : MonoBehaviour
 {
     GameObject objectImage;
     GameObject objectText;
-    LocationInfo info;
+    public XROrigin session;
+    private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     // Start is called before the first frame update
 
     private void Start()
@@ -19,18 +22,6 @@ public class PhoneChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Device Altitiude-> " + info.altitude);
-        /*
-        if(info.altitude <= 0)
-        {
-            objectImage.SetActive(true);
-            objectImage.SetActive(true);
-        }
-        else
-        {
-            objectImage.SetActive(false);
-            objectImage.SetActive(false);
-        }
-        */
+        Ray ray = Camera.main.ScreenPointToRay(session.transform.position);
     }
 }

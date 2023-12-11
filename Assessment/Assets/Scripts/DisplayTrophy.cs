@@ -10,6 +10,8 @@ public class DisplayTrophy : MonoBehaviour
     public GameObject Bronze;
     public GameObject Silver;
     public GameObject Gold;
+    public GameObject planeOnboarding;
+    public GameObject planeText;
     List<GameObject> TrophyList = new List<GameObject>();
     public ARRaycastManager arRaycastManager;
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -20,7 +22,8 @@ public class DisplayTrophy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        planeOnboarding.SetActive(false);
+        planeText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -104,5 +107,16 @@ public class DisplayTrophy : MonoBehaviour
             }
             TrophyList.Clear();
         }
+    }
+    public void DisplayOnboarding()
+    {
+        planeOnboarding.SetActive(true);
+        planeText.SetActive(true);
+        Invoke("OffBoarding", 2f);
+    }
+    void OffBoarding()
+    {
+        planeOnboarding.SetActive(false);
+        planeText.SetActive(false);
     }
 }
