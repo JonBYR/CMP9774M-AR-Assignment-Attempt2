@@ -1871,8 +1871,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1474081079}
-        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
-        m_MethodName: Back
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2658,7 +2658,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1474081077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a4691e2183019b43a81654635811f09, type: 3}
+  m_Script: {fileID: 11500000, guid: b04ba17f70345c04397f3ed10337bc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1508988486
@@ -2906,6 +2906,7 @@ GameObject:
   - component: {fileID: 1924709237}
   - component: {fileID: 1924709236}
   - component: {fileID: 1924709235}
+  - component: {fileID: 1924709238}
   m_Layer: 0
   m_Name: OnboardingObject
   m_TagString: Untagged
@@ -2974,6 +2975,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1924709238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924709234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 553af74e07886814fa1d0689bdd5fc9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plane: {fileID: 2373930980908155612, guid: 1dd352ff146189446a626a7056ab078c, type: 3}
 --- !u!1 &1933355660
 GameObject:
   m_ObjectHideFlags: 0

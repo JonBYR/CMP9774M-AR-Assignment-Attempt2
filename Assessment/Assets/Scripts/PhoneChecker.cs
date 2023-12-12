@@ -8,8 +8,10 @@ public class PhoneChecker : MonoBehaviour
 {
     GameObject objectImage;
     GameObject objectText;
-    public XROrigin session;
+    //public XROrigin session;
+    public ARPlane plane;
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    private DisplayTrophy d;
     // Start is called before the first frame update
 
     private void Start()
@@ -18,10 +20,31 @@ public class PhoneChecker : MonoBehaviour
         objectText = GameObject.Find("ObjectText");
         objectImage.SetActive(false);
         objectImage.SetActive(false);
+        d = GameObject.Find("ButtonController").GetComponent<DisplayTrophy>();
     }
     // Update is called once per frame
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(session.transform.position);
+        if (d.markersFound == 0) return;
+        else
+        {
+            float dist = Vector3.Distance(Camera.main.transform.position, plane.transform.position);
+            if (dist < 0.5)
+            {
+                Reminder();
+            }
+            else return;
+        }
+    }
+    void Reminder()
+    {
+        objectImage.SetActive(true);
+        objectText.SetActive(true);
+        Invoke("RemoveOnboarding", 2f);
+    }
+    void RemoveOnboarding()
+    {
+        objectImage.SetActive(false);
+        objectImage.SetActive(false);
     }
 }
