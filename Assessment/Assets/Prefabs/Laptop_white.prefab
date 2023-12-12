@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7342464953904297700}
   - component: {fileID: 6496464318955221574}
   - component: {fileID: 1254370469769991238}
+  - component: {fileID: 2581838351728173119}
   m_Layer: 0
   m_Name: Laptop_white
   m_TagString: Laptop
@@ -208,3 +209,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2581838351728173119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbdb9fdc1bc92a344ad4cd7a17dd7563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -410,6 +410,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45037788}
   m_CullTransparentMesh: 1
+--- !u!1 &98913394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 98913395}
+  - component: {fileID: 98913397}
+  - component: {fileID: 98913396}
+  m_Layer: 5
+  m_Name: PlaneObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &98913395
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98913394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 738550538}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 234.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &98913396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98913394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 8400000, guid: 109746f157efba544831bb526c58d31a, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &98913397
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98913394}
+  m_CullTransparentMesh: 1
 --- !u!1 &254761220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,72 +1218,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428942887}
   m_CullTransparentMesh: 1
---- !u!1 &437906907
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 437906909}
-  - component: {fileID: 437906908}
-  m_Layer: 0
-  m_Name: PlaneOnboarding
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!328 &437906908
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437906907}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: b89768ad8317395489177cc52cc72941, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: 884805f1c7ee56b49965577feb87537f, type: 2}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 2
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
-  m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
---- !u!4 &437906909
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437906907}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &498793002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,9 +1389,9 @@ MonoBehaviour:
   - imageGuid: 5fad672c-0acc-4339-a080-a2694ff6ff03
     imagePrefab: {fileID: 160448, guid: fec0b93bb0c53f443bf3177dd2a03d4c, type: 3}
   - imageGuid: 17afa191-e3a7-42b8-afeb-254cf824a949
-    imagePrefab: {fileID: 100000, guid: 7a93e07023f417142881f9ebea0e642b, type: 3}
-  - imageGuid: 6b7e3e7c-5b86-4ada-8afe-f6b0811a4bc0
     imagePrefab: {fileID: 5367978124743597531, guid: c92f34a05ad69814ab379a90227f7eaf, type: 3}
+  - imageGuid: 6b7e3e7c-5b86-4ada-8afe-f6b0811a4bc0
+    imagePrefab: {fileID: 100000, guid: 7a93e07023f417142881f9ebea0e642b, type: 3}
   m_ImageLibrary: {fileID: 11400000, guid: 757a3b7eca1cb6543968fe8979a7d1ec, type: 2}
 --- !u!114 &501679629
 MonoBehaviour:
@@ -1568,6 +1574,7 @@ RectTransform:
   - {fileID: 254761221}
   - {fileID: 498793003}
   - {fileID: 1910916306}
+  - {fileID: 98913395}
   - {fileID: 1003697266}
   - {fileID: 1474081078}
   m_Father: {fileID: 0}
@@ -1823,7 +1830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -323, y: 346}
+  m_AnchoredPosition: {x: -323, y: -776.33}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1003697267
@@ -1871,8 +1878,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1474081079}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: StartGame
+        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1952,7 +1959,7 @@ MonoBehaviour:
   Bronze: {fileID: 7392514346430568159, guid: 560029568a2e76d4dbdb0b6fb6378962, type: 3}
   Silver: {fileID: 6035068904036865805, guid: a7ccbd38d7331d14995a269d05d50003, type: 3}
   Gold: {fileID: 5460039032498507486, guid: 6e4ca06b53b95c94fbf6c697ac670bf2, type: 3}
-  planeOnboarding: {fileID: 437906907}
+  planeOnboarding: {fileID: 98913394}
   planeText: {fileID: 254761220}
   arRaycastManager: {fileID: 501679632}
   markersFound: 0
@@ -2613,6 +2620,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286976161}
   m_CullTransparentMesh: 1
+--- !u!1 &1376475727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1376475729}
+  - component: {fileID: 1376475728}
+  m_Layer: 0
+  m_Name: Planeboarding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!328 &1376475728
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376475727}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: b89768ad8317395489177cc52cc72941, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 109746f157efba544831bb526c58d31a, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!4 &1376475729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376475727}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1474081077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,7 +2731,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1474081077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04ba17f70345c04397f3ed10337bc0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a4691e2183019b43a81654635811f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1508988486
@@ -2926,6 +2999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713c9063d3eceb94296c30687464649f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  check: {fileID: 1924709238}
 --- !u!328 &1924709236
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -2950,7 +3024,7 @@ VideoPlayer:
   m_AudioOutputMode: 2
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
-  m_Url: 
+  m_Url: file://C:/Users/Computing/Documents/GitHub/CMP9774M-AR-Assignment-Attempt2/Assessment/Assets/Onboarding/findanimage.webm
   m_EnabledAudioTracks: 
   m_DirectAudioMutes: 
   m_ControlledAudioTrackCount: 0
@@ -2987,6 +3061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553af74e07886814fa1d0689bdd5fc9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectImage: {fileID: 1910916305}
+  objectText: {fileID: 45037788}
   plane: {fileID: 2373930980908155612, guid: 1dd352ff146189446a626a7056ab078c, type: 3}
 --- !u!1 &1933355660
 GameObject:
@@ -3383,4 +3459,4 @@ SceneRoots:
   - {fileID: 1035950602}
   - {fileID: 2143897124}
   - {fileID: 981013529}
-  - {fileID: 437906909}
+  - {fileID: 1376475729}

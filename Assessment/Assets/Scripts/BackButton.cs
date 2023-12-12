@@ -9,4 +9,8 @@ public class BackButton : MonoBehaviour
     {
         SceneManager.LoadScene("TitleScene");
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

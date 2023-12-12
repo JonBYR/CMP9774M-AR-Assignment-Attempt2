@@ -4,7 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
+    public GameObject loadText;
     // Start is called before the first frame update
+    private void Start()
+    {
+        loadText.SetActive(false);
+    }
     public void StartGame()
     {
         Scene currentScene = SceneManager.GetActiveScene();
@@ -15,6 +20,7 @@ public class MenuScript : MonoBehaviour
         }
         else
         {
+            loadText.SetActive(true);
             StartCoroutine(CreateScene(1));
         }
     }

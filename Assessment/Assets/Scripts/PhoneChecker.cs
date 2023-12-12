@@ -6,8 +6,8 @@ using UnityEngine.XR.ARFoundation;
 
 public class PhoneChecker : MonoBehaviour
 {
-    GameObject objectImage;
-    GameObject objectText;
+    public GameObject objectImage;
+    public GameObject objectText;
     //public XROrigin session;
     public ARPlane plane;
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -16,10 +16,6 @@ public class PhoneChecker : MonoBehaviour
 
     private void Start()
     {
-        objectImage =GameObject.Find("DisplayObject");
-        objectText = GameObject.Find("ObjectText");
-        objectImage.SetActive(false);
-        objectImage.SetActive(false);
         d = GameObject.Find("ButtonController").GetComponent<DisplayTrophy>();
     }
     // Update is called once per frame
@@ -29,6 +25,7 @@ public class PhoneChecker : MonoBehaviour
         else
         {
             float dist = Vector3.Distance(Camera.main.transform.position, plane.transform.position);
+            Debug.Log(dist);
             if (dist < 0.5)
             {
                 Reminder();
