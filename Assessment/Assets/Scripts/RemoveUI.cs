@@ -13,7 +13,7 @@ public class RemoveUI : MonoBehaviour
     // Update is called once per frame
     IEnumerator UIRemoval()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         this.gameObject.SetActive(false);
     }
 }
