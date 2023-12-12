@@ -12,11 +12,14 @@ public class TreasureFound : MonoBehaviour
     private DisplayTrophy d;
     public AudioSource clip;
     public GameObject foundText;
+    private PhoneChecker phoneChecker;
     private void Start()
     {
         d = GameObject.Find("ButtonController").GetComponent<DisplayTrophy>();
+        phoneChecker = GameObject.Find("OnboardingObject").GetComponent<PhoneChecker>();
         if(this.gameObject.tag == "Angel")
         {
+            phoneChecker.timer = 0;
             ARManager.instance.cathedralSpawned = true;
             /*arManager.cathedralContainer.transform.GetChild(1).gameObject.SetActive(true);
             arManager.cathedralButton = arManager.cathedralButton.transform.GetChild(1).gameObject.GetComponent<Button>();
@@ -39,6 +42,7 @@ public class TreasureFound : MonoBehaviour
         }
         else if(this.gameObject.tag == "Football")
         {
+            phoneChecker.timer = 0;
             ARManager.instance.footballSpawned = true;
             /*treasureText = GameObject.Find("FootballContainer");
             treasureText.transform.GetChild(1).gameObject.SetActive(true);
@@ -64,6 +68,7 @@ public class TreasureFound : MonoBehaviour
         }
         else if(this.gameObject.tag == "Laptop")
         {
+            phoneChecker.timer = 0;
             ARManager.instance.laptopSpawned = true;
             /*treasureText = GameObject.Find("UniversityContainer");
             treasureText.transform.GetChild(1).gameObject.SetActive(true);
@@ -82,7 +87,7 @@ public class TreasureFound : MonoBehaviour
             else
             {
                 Instantiate(foundText, foundText.transform.position, foundText.transform.rotation);
-                Invoke("DestroyText", 2.0f);
+                Invoke("DestroyText", 10.0f);
             }
             //treasureText.transform.GetChild(0).gameObject.SetActive(true);
         }
