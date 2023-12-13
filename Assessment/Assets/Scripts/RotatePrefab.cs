@@ -17,7 +17,11 @@ public class RotatePrefab : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         raycastManager = GameObject.Find("XR Origin").GetComponent<ARRaycastManager>();
     }
-
+    private void OnEnable()
+    {
+        transform.LookAt(mainCamera.transform);
+        transform.Rotate(0, -180, 0); //this technique is called billboarding
+    }
     // Update is called once per frame
     void Update()
     {
@@ -36,7 +40,7 @@ public class RotatePrefab : MonoBehaviour
         }
         if (canRotate) 
         {
-            this.transform.RotateAround(this.transform.position, Vector3.up, 20 * Time.deltaTime); 
+            this.transform.RotateAround(this.transform.position, Vector3.up, 50 * Time.deltaTime); 
         }
     }
 }
